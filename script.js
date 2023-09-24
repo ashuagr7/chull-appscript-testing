@@ -1,4 +1,5 @@
 import { Router } from "./function/core/Router.js";
+
 import { TemplateEngine } from "./function/utils/templateEngine.js";
 
 import { siteNavContent } from "./form/pages/content/navigational/navbar/siteNav/siteNavContent.js";
@@ -27,16 +28,9 @@ const landingPageCards = TemplateEngine.convert(landingPageCardsTemplate, landin
 const landingPageBanner = TemplateEngine.convert(landingPageBannerTemplate, landingPageBannerContent)
 const landingPageSidebar = TemplateEngine.convert(sidebarTemplate, siteSidebarContent)
 const authForms = TemplateEngine.convert(authFormTemplates, authFormContent)
-const appNav = TemplateEngine.convert(navbarTemplate,appNavContent)
-const appSidebar = TemplateEngine.convert(appSidebarTemplate,appSidebarContent)
-const editorNavbar = TemplateEngine.convert(editorNavTemplate,editorNavContent)
-
-
-
-
-
-
-
+const appNav = TemplateEngine.convert(navbarTemplate, appNavContent)
+const appSidebar = TemplateEngine.convert(appSidebarTemplate, appSidebarContent)
+const editorNavbar = TemplateEngine.convert(editorNavTemplate, editorNavContent)
 
 
 const routes = [
@@ -53,11 +47,11 @@ const routes = [
             },
             'main': {
                 name: "LandingPageMain",
-                html: [landingPageSidebar,landingPageHeader,landingPageCards,landingPageBanner]
+                html: [landingPageSidebar, landingPageHeader, landingPageCards, landingPageBanner]
             }
         },
         css: ['./beauty/styles/custom/landingPage.css'],
-        scripts: ['./beauty/scripts/components/sidebar/sidebarUtils.js']
+        scripts: ['./function/customScripts/landing/checkAuth.js']
     },
     {
         path: '/auth',
@@ -88,16 +82,16 @@ const routes = [
             },
             'main': {
                 name: "ExplorerMain",
-                html: [appSidebar,`<div class="content" data-router="content"><h2 class="light">My Drive</h2></div>`],
+                html: [appSidebar, `<div class="content" data-router="content"><h2 class="light">My Drive</h2></div>`],
 
             }
         },
         css: ['./beauty/styles/custom/explorer.css'],
-        scripts: ['./beauty/scripts/components/sidebar/sidebarUtils.js','./function/customScripts/auth/explorer.js']
+        scripts: ['./beauty/scripts/components/sidebar/sidebarUtils.js', './function/customScripts/auth/explorer.js']
     },
     {
-        path:"/editor",
-        components:{
+        path: "/editor",
+        components: {
             'app': {
                 name: "EditorApp",
                 html: [`<div data-router="navbar"></div><main data-router="main"></main>`]
@@ -132,13 +126,15 @@ const routes = [
 
             }
         },
-        css:['./beauty/styles/custom/editor.css'],
-        scripts:['./function/customScripts/editor/editor.js']
+        css: ['./beauty/styles/custom/editor.css'],
+        scripts: ['./function/customScripts/editor/editor.js']
 
     }
 
 ]
 
 const route = new Router(routes)
+
+
 
 
