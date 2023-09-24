@@ -1,0 +1,30 @@
+main {
+  display: flex;
+  margin-left: 250px; /* Assuming the width of the sidebar is 250px */
+  padding-top: 60px; /* Assuming the height of the navbar is 60px */
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.content h2 {
+  font-weight: 400;
+}
+
+ol {
+  margin-left: 1rem;
+  margin-top: 0.3rem;
+}
+ol li {
+  padding: 0.4rem;
+}
+
+  /* Responsive design */
+  @media screen and (max-width: 768px) {   
+   main{
+    margin-left: 0px;
+   }
+  
+  }

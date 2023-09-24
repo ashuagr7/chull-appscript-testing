@@ -1,0 +1,7 @@
+:root[data-theme="chull"] {
+    --primary-color: #3498db;       /* Main color for links and buttons */
+    --secondary-color: #ECF2FA;     /* Secondary color for accents */
+    --background-color: #D9EAFC;    /* Background color for the page */
+    --text-color: #333;             /* Default text color */
+    --font-family: 'Open Sans','Poppins', sans-serif;
+  }
